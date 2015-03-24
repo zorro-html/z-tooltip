@@ -1,0 +1,76 @@
+<!--
+  # tooltip
+
+  小提示。本身是 `inline-block` 的，如果用于浮层，需要和其它外部样式配合使用
+
+  ## Attributes
+
+  * `[side="left|top|right|bottom"]`: 出现的方向
+  * `[warning]`: 是否为警示状态
+  * `::content p[type="title"]`: 标题
+
+  ## Example
+
+  ```
+  <z-tooltip side="top">
+      顶部提示文字
+  </z-tooltip>
+
+  <z-tooltip side="left">
+      左侧提示文字
+  </z-tooltip>
+
+  <z-tooltip>
+      <p type="title">带标题的提示</p>
+      文字内容文字内容文字内容<br>
+      文字内容文字内容文字内容
+  </z-tooltip>
+  ```
+-->
+
+<link rel="import" href="//g.alicdn.com/mtb/lib-3rd/polymer/polymer.html">
+
+<polymer-element name="z-tooltip" attributes="" noscript>
+
+  <template>
+    <style>
+      :host {position: relative; display: inline-block; box-sizing: border-box; padding: 10px 15px; font-size: 12px; color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); border-radius: 3px; white-space: nowrap; line-height: 1.5; white-space: normal; word-break: break-all;}
+      :host {background-color: rgba(95, 100, 109, 0.95);}
+      :host::after {border-color: rgba(95, 100, 109, 0.95);}
+      :host([warning]) {background-color: rgba(242, 63, 63, 1);}
+      :host([warning])::after {border-color: rgba(242, 63, 63, 1);}
+
+      ::content z-icon {vertical-align: middle;}
+      ::content p[type="title"] {font-size: 16px; margin: 10px 0;}
+
+      :host([side])::after {content: ""; border-width: 10px; border-style: solid; position: absolute;}
+      :host([side="left"])::after {border-right-color: transparent; border-top-color: transparent; border-bottom-color: transparent; top: 50%; right: -19px; -webkit-transform: translateY(-50%); transform: translateY(-50%);}
+      :host([side="top"])::after {border-right-color: transparent; border-left-color: transparent; border-bottom-color: transparent; left: 50%; bottom: -19px; -webkit-transform: translateX(-50%); transform: translateX(-50%);}
+      :host([side="bottom"])::after {border-right-color: transparent; border-top-color: transparent; border-left-color: transparent; left: 50%; top: -19px; -webkit-transform: translateX(-50%); transform: translateX(-50%);}
+      :host([side="right"])::after {border-left-color: transparent; border-top-color: transparent; border-bottom-color: transparent; top: 50%; left: -19px; -webkit-transform: translateY(-50%); transform: translateY(-50%);}
+
+      /* todo :host([popup]) */
+
+      /* extra style */
+      ::content button {
+        box-sizing: border-box;
+        margin: 1em auto;
+        display: block;
+        border: 0;
+        padding: 0;
+        width: 128px;
+        height: 24px;
+        border-radius: 5px;
+        background-color: RGBA(157, 165, 176, 1);
+        text-align: center;
+        font-size: 12px;
+        color: white;
+      }
+      ::content button:hover {
+        background-color: RGBA(157, 165, 176, 0.8);
+      }
+    </style>
+    <content></content>
+  </template>
+
+</polymer-element>
