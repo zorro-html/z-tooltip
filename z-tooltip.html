@@ -30,7 +30,7 @@
 
 <link rel="import" href="//g.alicdn.com/mtb/lib-3rd/polymer/polymer.html">
 
-<polymer-element name="z-tooltip" attributes="" noscript>
+<polymer-element name="z-tooltip" attributes="">
 
   <template>
     <style>
@@ -72,5 +72,25 @@
     </style>
     <content></content>
   </template>
+
+  <script>
+    Polymer('z-tooltip', {
+      ready: function () {
+        // fixed init-rendering bug
+        var side = this.getAttribute('side');
+        var warning = this.hasAttribute('warning');
+        this.removeAttribute('side');
+        this.removeAttribute('warning');
+        setTimeout(function () {
+          if (side) {
+            this.setAttribute('side', side);
+          }
+          if (warning) {
+            this.setAttribute('warning', '');
+          }
+        }.bind(this));
+      }
+    });
+  </script>
 
 </polymer-element>
