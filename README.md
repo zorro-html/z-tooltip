@@ -1,27 +1,53 @@
-# tooltip
+# `<z-tooltip>`
 
-小提示。本身是 `inline-block` 的，如果用于浮层，需要和其它外部样式配合使用
+The element itself is an `inline-block` one. But could be used as a absolute layer aside certain box element
 
 ## Attributes
 
-* `[side="left|top|right|bottom"]`: 出现的方向
-* `[warning]`: 是否为警示状态
-* `::content p[type="title"]`: 标题
+- `side`: `"left"` | `"top"` | `"right"` | `"bottom"` the direction to be aside to
+- `warning`: warning style
 
-## Example
+## Child Elements
+
+- `::content [type="title"]`: the title
+
+## Examples
+
+```
+<z-tooltip>
+  Tooltip
+</z-tooltip>
+```
+
+### Tooltip with Title
+
+```
+<z-tooltip>
+  <p type="title">Title</p>
+  Lorem ipsum dolor sit amet,<br>
+  consectetur adipiscing elit
+</z-tooltip>
+```
+
+### Title with Arrow
 
 ```
 <z-tooltip side="top">
-    顶部提示文字
+  Tooltip on the top
 </z-tooltip>
-
 <z-tooltip side="left">
-    左侧提示文字
+  Tooltip on the left
 </z-tooltip>
 
-<z-tooltip>
-    <p type="title">带标题的提示</p>
-    文字内容文字内容文字内容<br>
-    文字内容文字内容文字内容
-</z-tooltip>
+```
+
+### Tooltip beside element
+
+```
+<z-btn style="position: relative;">
+    Button
+    <z-tooltip side="right" style="position: absolute; left: 100%; top: 50%; -webkit-transform: translateY(-50%); margin-left: 10px; width: 120px;">
+      Tooltip
+    </z-tooltip>
+</z-btn>
 ```
