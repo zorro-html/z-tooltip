@@ -38,7 +38,6 @@ The element itself is an `inline-block` one. But could be used as a absolute lay
 <z-tooltip side="left">
   Tooltip on the left
 </z-tooltip>
-
 ```
 
 ### Tooltip beside element
