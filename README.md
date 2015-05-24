@@ -2,6 +2,12 @@
 
 The element itself is an `inline-block` one. But could be used as a absolute layer aside certain box element
 
+## Import
+
+```
+<link rel="import" href="z-tooltip/z-tooltip.html">
+```
+
 ## Attributes
 
 - `side`: `"left"` | `"top"` | `"right"` | `"bottom"` the direction to be aside to
